@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\bin\Debug\netstandard2.0\SQLiteListView.deps.json
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\bin\Debug\netstandard2.0\SQLiteListView.dll
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\bin\Debug\netstandard2.0\SQLiteListView.pdb
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\SQLiteListView.csprojAssemblyReference.cache
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\Views\AddPage.xaml.g.cs
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\SQLiteListView.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\SQLiteListView.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\SQLiteListView.AssemblyInfo.cs
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\SQLiteListView.dll
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\SQLiteListView.pdb
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\Views\RecipePage.xaml.g.cs
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\Views\RecipeListView.xaml.g.cs
+C:\Users\User\source\repos\SQLiteListView\SQLiteListView\SQLiteListView\obj\Debug\netstandard2.0\Views\Test.xaml.g.cs

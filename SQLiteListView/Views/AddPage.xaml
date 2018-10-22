@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm ="clr-namespace:SQLiteListView.ViewModels"
+             x:Class="SQLiteListView.Views.AddPage"
+             xmlns:local="clr-namespace:SQLiteListView.ViewModels.Commands">
+
+
+    <ContentPage.Resources>
+        <vm:AddPageViewModel x:Key="viewModel"/>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddButton" Text="Add Recipe" Command="{Binding SaveRecipeCommand}" Order="Primary" Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout>
+                <StackLayout>
+                    <StackLayout>
+
+                        <Label Text="{Binding RecipeMessage}" HeightRequest="75" />
+                        <Label Text="Recipe Name"/>
+                        <Entry Text="{Binding Recipe.RecipeName}"/>
+
+                        <Label Text="Preperation Time"/>
+                        <Entry Text="{Binding Recipe.PrepTime}"/>
+
+                        <Label Text="Cooking Time"/>
+                        <Entry Text="{Binding Recipe.CookTime}"/>
+
+                        <Label Text="Serves"/>
+                        <Entry Text="{Binding Recipe.Serves}"/>
+
+                        <Label Text="Meal Type"/>
+                        <Entry Text="{Binding Recipe.MealType}"/>
+                    </StackLayout>
+
+                    <!--#region Equipment-->
+                    <StackLayout>
+                        <Label Text="Equipment"/>
+                        <Entry Text="{Binding Equipment.EquipmentName, Mode=TwoWay}" Placeholder="Type Equipment here"/>
+                        <Button HorizontalOptions="Center" Text="Save" Command="{Binding SaveEquipmentCommand}"/>
+
+                        <ListView ItemsSource="{Binding Recipe.Equipment}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding EquipmentName}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <!--#endregion -->
+
+                    <!--#region Ingredients-->
+                    <StackLayout>
+                        <Label Text="Ingredients"/>
+
+                        <Entry Text="{Binding Ingredient.IngredientsName, Mode=TwoWay}" Placeholder="IngredientsName"/>
+                        <Entry x:Name="AmmountEntry" Text="{Binding Ingredient.Ammount, Mode=TwoWay}" Placeholder="Ammount"/>
+                        <Entry Text="{Binding Ingredient.Units, Mode=TwoWay}" Placeholder="Units"/>
+
+                        <Label Text="{Binding IngredientMessage}"/>
+
+                        <Button HorizontalOptions="Center" Text="Save" Command="{Binding SaveIngredientCommand}"/>
+
+                        <ListView ItemsSource="{Binding Recipe.Ingredients}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding IngredientsName}"/>
+                                            <Label Text="{Binding Ammount}"/>
+                                            <Label Text="{Binding Units}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <!--#endregion -->
+                    
+                    <!--#region Method-->
+                    <StackLayout>
+                        <Label Text="Method"/>
+
+                        <Entry Text="{Binding Method.MethodName, Mode=TwoWay}" Placeholder="Method"/>
+
+                        <Button HorizontalOptions="Center" Text="Save" Command="{Binding SaveMethodCommand}"/>
+
+
+                        <ListView ItemsSource="{Binding Recipe.Method}" RowHeight="75">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding MethodNumber}"/>
+                                            <Label Text="{Binding MethodName}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <!--#endregion -->
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

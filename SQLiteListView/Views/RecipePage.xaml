@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:video="clr-namespace:SQLiteListView.FormsVideoLibrary"
+             xmlns:local="clr-namespace:SQLiteListView.Models"
+             xmlns:viewmodels="clr-namespace:SQLiteListView.ViewModels"
+             x:Class="SQLiteListView.Views.RecipePage"
+             Title="{Binding Recipe.RecipeName}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                
+
+                    
+                    <Label Text="{Binding Recipe.RecipeName}"
+                       FontSize="50"/>
+                <video:VideoPlayer HeightRequest="320" WidthRequest="220" IsVisible="{Binding VideoIsVisible}"> 
+                    <video:VideoPlayer.Source>
+                        <video:ResourceVideoSource>
+                            <video:ResourceVideoSource.Path>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Videos/iOSApiVideo.mp4" />
+                                    <On Platform="Android" Value="ScrambledEggs.mp4" />
+                                    <On Platform="UWP" Value="Videos/UWPApiVideo.mp4" />
+                                </OnPlatform>
+                            </video:ResourceVideoSource.Path>
+                        </video:ResourceVideoSource>
+                    </video:VideoPlayer.Source>
+                </video:VideoPlayer>
+                
+                <StackLayout>
+                    <Label 
+                    Margin="10"
+                    Text="Meal Type"
+                    FontSize="Large" 
+                    FontAttributes="Bold"/>
+                    <Label 
+                    Text="{Binding Recipe.MealType}"
+                       Margin="10"
+                       FontSize="Medium"/>
+
+                    <Label Margin="10"
+                       Text="Serves" 
+                       FontSize="Large" 
+                       FontAttributes="Bold"/>
+                    <Label Text="{Binding Recipe.Serves}" 
+                       Margin="10"
+                       FontSize="Medium"/>
+
+                    <Label Margin="10"
+                       Text="Preperation Time" 
+                       FontSize="Large" 
+                       FontAttributes="Bold"/>
+                    <Label Text="{Binding Recipe.PrepTime}" 
+                       Margin="10"
+                       FontSize="Medium"/>
+
+                    <Label Margin="10"
+                       Text="Cooking Time" 
+                       FontSize="Large" 
+                       FontAttributes="Bold"/>
+                    <Label Text="{Binding Recipe.CookTime}"  
+                       Margin="10"
+                       FontSize="Medium"/>
+                </StackLayout>
+                
+                <StackLayout>
+                    <Label Margin="10"
+                       Text="Equipment" 
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+
+                    <viewmodels:NonScrollableListView ItemsSource="{Binding EquipmentList}" 
+                                                  x:Name="EquipmentListView" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <Label HorizontalOptions="Start"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               Text="{Binding EquipmentName}"
+                                               FontSize="Medium"/>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </viewmodels:NonScrollableListView>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Margin="10"
+                       Text="Ingredients" 
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+
+                    <Picker Title="--Number of People--"
+                        ItemsSource="{Binding PickersList}"
+                        ItemDisplayBinding="{Binding NumberOfPeople}"
+                        SelectedItem="{Binding SelectedPicker}"/>
+
+
+                    <viewmodels:NonScrollableListView x:Name="IngredientsListView"
+                                                  ItemsSource="{Binding IngredientsList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                            <StackLayout Orientation="Horizontal" Margin="10">
+                                                <Label HorizontalOptions="Start"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               Text="{Binding IngredientsName}"
+                                               FontSize="Medium"/>
+                                                <Label HorizontalOptions="End"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               Text="{Binding Ammount}"
+                                               FontSize="Medium"/>
+                                                <Label HorizontalOptions="End"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               Text="{Binding Units}"
+                                               FontSize="Medium"/>
+                                            </StackLayout>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </viewmodels:NonScrollableListView>
+                </StackLayout>
+                   
+
+                <Label Margin="10"
+                       Text="Method"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+
+                <viewmodels:NonScrollableListView x:Name="MethodList" 
+                                                  ItemsSource="{Binding MethodList}"
+                                                  RowHeight="200">
+                    <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" >
+                                            <Label Text="{Binding MethodNumber}"
+                                               FontSize="Medium"/>
+                                            <Label Text="{Binding MethodName}"
+                                               FontSize="Medium"/>
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </viewmodels:NonScrollableListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

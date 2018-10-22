@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteListView.Views.RecipeListView"
+             xmlns:ViewModel ="clr-namespace:SQLiteListView.ViewModels"
+             xmlns:local="clr-namespace:SQLiteListView.ViewModels.Commands">
+
+<ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddButton" Text="Add" Command="{Binding Path = NewAddPage}" Order="Primary" Priority="0"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+
+        <SearchBar x:Name="SearchBar" 
+               Placeholder="Search" 
+               SearchCommand="{Binding SearchCommand}" 
+               SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+               Text="{Binding SearchText, Mode=TwoWay}">
+            <SearchBar.Behaviors>
+                <local:TextChangedBehavior />
+            </SearchBar.Behaviors>
+        </SearchBar>
+        
+        <ListView x:Name="ListViewItems"
+                        ItemsSource="{Binding Recipes}" 
+                        SelectedItem="{Binding SelectedRecipe}"
+                        HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="60">
+                            <ViewCell.ContextActions>
+                                <MenuItem CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" Command="DeleteCommand"/>
+                            </ViewCell.ContextActions>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Image/>
+                                <Label HorizontalOptions="Start"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding RecipeName}"/>
+                            </Grid>
+                        </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </StackLayout>
+</ContentPage>
